@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+        <template id="proforma">
+                <t t-if="not o" t-set="o" t-value="doc"/>
+
+                <t t-if="not company">
+                    <!-- Multicompany -->
+                    <t t-if="company_id">
+                        <t t-set="company" t-value="company_id"/>
+                    </t>
+                    <t t-elif="o and 'company_id' in o">
+                        <t t-set="company" t-value="o.company_id.sudo()"/>
+                    </t>
+                    <t t-else="else">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                </t>
+
+                <div class="header">
+                    <section>
+                        <div class="">
+                        <div class="row">
+                            <div class="col-3">
+                            <t t-if='doc.company_id.logo'>
+                                <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" alt="Logo" style="max-height: 45px; padding: 0px; margin: 0px;" align="left" />
+                            </t>
+                            
+                            <!-- <img src='/web/binary/company_logo' style="max-height: 45px;"/> -->
+                            <!-- src="/logo.png?company=${company.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${company.name}"/> -->
+                            <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />  -->
+                            <!-- t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo" /> -->
+                            </div>
+                            <div class="col-9 text-right">
+                            <strong>Oficina Central:</strong>C. Francis Peyton Rous N° 630<br/>
+                            <strong>Teléfono:</strong>(+591) 4 4127065
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                            <div class="col-12" style="border-bottom: 1px solid #084C68">
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+                    </div>
+                    <!-- everything inside t-call="fhid_recruitment.external_layout" will be rendered here -->
+                    <t t-raw="0" />
+
+                <div class="footer">
+                    <section>
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-12" style="border-top: 1px solid #084C68">
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                            <strong>Email:</strong> info@otomati-srl.com <strong>Web:</strong> https://otomati-srl.com <strong>NIT:</strong> 319480024
+                            <div t-if="report_type == 'pdf'" class="text-muted text-center">
+                                Pág.: <span class="page"/> / <span class="topage"/>
+                            </div>  
+                            </div>            
+                        </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <t t-raw="0"/>
+                </div>
+            </template>
+    </data>
+</odoo>
