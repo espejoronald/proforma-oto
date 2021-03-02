@@ -32,8 +32,8 @@
                             <!-- t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo" /> -->
                             </div>
                             <div class="col-9 text-right">
-                            <strong>Oficina Central:</strong>C. Francis Peyton Rous N° 630<br/>
-                            <strong>Teléfono:</strong>(+591) 4 4127065
+                            <strong>Oficina Central: </strong>C. Francis Peyton Rous N° 630<br/>
+                            <strong>Teléfono: </strong>(+591) 4 4127065
                             </div>
                         </div>
                         </div>
